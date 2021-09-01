@@ -1,0 +1,127 @@
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+{{#each rows}}
+  <form
+    class="row g-3 needs-validation"
+    method="POST"
+    action="/reportIssue/{{this.id}}"
+  >
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          value="{{this.first_name}}"
+          placeholder="First Name"
+          name="first_name"
+          required
+        />
+        <label for="floatingInput">First Name</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Last Name"
+          value="{{this.last_name}}"
+          name="last_name"
+          required
+        />
+        <label for="floatingInput">Last Name</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="email@email.com"
+          value="{{this.email}}"
+          name="email"
+          required
+        />
+        <label for="floatingInput">Email</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Phone"
+          value="{{this.phone}}"
+          name="phone"
+          required
+        />
+        <label for="floatingInput">Phone</label>
+      </div>
+    </div>
+{{/each}}
+    <select
+      class="form-select issues form-select-sm"
+      aria-label=".form-select-sm example"
+      name="issue"
+    >
+      <option selected>Issue Type</option>
+      {{#each row1}}
+        <option value="{{this.id}} {{this.issue_name}}">
+          {{this.issue_name}}</option>
+
+      {{/each}}
+    </select>
+
+    <select
+      class="form-select category form-select-sm"
+      aria-label=".form-select-sm example"
+      name="category"
+    >
+      <option selected>Category</option>
+      {{#each row2}}
+        <option
+          value="{{this.id}} {{this.category_name}}"
+        >{{this.category_name}}</option>
+      {{/each}}
+    </select>
+
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="comments"
+          name="comments"
+          style="height: 200px"
+          required
+        >{{this.comments}}</textarea>
+        <label for="comments">Comments</label>
+      </div>
+    </div>
+
+    <div class="col-12 d-grid">
+      <button class="btn btn-primary" type="submit">Send</button>
+    </div>
+
+  </form>

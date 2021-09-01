@@ -1,0 +1,71 @@
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+     {{alert}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+<div class="row">
+  <div class="col-6">
+    <h1>Reports</h1>
+  </div>
+
+  
+</div>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Issue Type</th>
+      <th scope="col">Category</th>
+      <th scope="col">Engineer's Remark</th>
+
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each row1}}
+      <tr>
+        <th scope="row1">{{this.id}}</th>
+        <td>{{this.first_name}}</td>
+        <td>{{this.last_name}}</td>
+        <td>{{this.comments}}</td>
+        <td>{{this.issue_name}}</td>
+        <td>{{this.category_name}}</td>
+        <td>{{this.eng_remark}}</td>
+        <td class="text-end">
+          <a
+            href="/viewsupervisor/{{this.id}}"
+            type="button"
+            class="btn btn-light btn-small"
+          ><i class="bi bi-eye"></i>
+            View</a>
+          
+          <a
+            href="/delete/{{this.id}}"
+            type="button"
+            class="btn btn-light btn-small"
+          ><i class="bi bi-person-x"></i>
+            Delete</a>
+          <a
+            href="/assignment/{{this.id}}"
+            type="button"
+            class="btn btn-dark btn-small"
+          ><i class="bi bi-check2-square"></i>
+            Assign</a>
+        </td>
+
+      </tr>
+    {{/each}}
+
+  </tbody>
+</table>

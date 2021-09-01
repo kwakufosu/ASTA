@@ -1,0 +1,51 @@
+
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+<div class="view-user p-5">
+  
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h3>List of Engineer Assignments</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Request ID</th>
+              <th scope="col">Assigned Engineer</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+              {{#each rows}}
+            <tr>
+              <th scope="rows">{{this.id}}</th>
+              <td>{{this.first_name}} {{this.last_name}}</td>
+              
+              
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    
+
+
+       
+</div>
+
+  
+

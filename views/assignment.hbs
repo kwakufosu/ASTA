@@ -1,0 +1,73 @@
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+{{/if}}
+
+{{#each rows}}
+<form class="row g-3 needs-validation" method="POST" action="/assignment/{{this.id}}">
+  <div class="view-user p-5">
+
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h3>{{this.first_name}} {{this.last_name}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Branch</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <th scope="rows">{{this.first_name}}</th>
+                <td>{{this.last_name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.branch}}</td>
+
+              </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+{{/each}}
+  <select
+    class="form-select assign form-select-sm"
+    id="category"
+    aria-label=".form-select-sm example"
+    style="max-width: 300px;margin-left:40px;"
+    name="assign"
+  >
+
+    <option selected id="option">Select Engineer</option>
+    {{#each row}}
+      <option value="{{this.id}} "> {{first_name}}
+        {{last_name}}</option>
+    {{/each}}
+
+  </select>
+
+  <div class="col-12 d-grid" style="max-width: 300px;">
+    <button class="btn btn-primary" type="submit">Send</button>
+  </div>
+</form>
+

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-6">
+    <h1>List of Assignments</h1>
+  </div>
+  
+</div>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      
+      <th scope="col"> Request ID</th>
+           
+      <th scope="col">Comments</th>
+      <th scope="col">Issue</th>
+      <th scope="col">category</th>
+      <th scope="col">Remark</th>
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr>
+       
+      <td scope="rows">{{this.id}}</td>    
+      <td>{{this.comments}}</td>
+      <td>{{this.issue_name}}</td>
+      <td>{{this.category_name}}</td>
+      <td>{{this.eng_remark}}</td>
+      <td class="text-end">
+      <a href="/remark/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i> Give Remark</a>
+      </td>
+      {{/each}}
+
+  </tbody>
+  
+  

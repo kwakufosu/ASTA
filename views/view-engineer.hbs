@@ -1,0 +1,53 @@
+<div class="view-user p-5">
+
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.first_name}} {{this.last_name}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h1>Profile</h1>
+    </div>
+
+  </div>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Branch</th>
+
+        <th scope="col" class="text-end">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+        <tr>
+          <th scope="rows">{{this.id}}</th>
+          <td>{{this.first_name}}</td>
+          <td>{{this.last_name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.phone}}</td>
+          <td>{{this.branch}}</td>
+
+          <td class="text-end">
+            <a
+              href="/login/assignment"
+              type="button"
+              class="btn btn-light btn-small"
+            ><i class="bi bi-file-text"></i>
+              Assignments</a>
+
+          </td>
+
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+</div>
