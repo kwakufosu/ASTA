@@ -46,7 +46,7 @@ exports.remark = (req, res) => {
     console.log("Connected as ID" + connection.threadId);
     //Use the connection
     connection.query(
-      "SELECT request.id ,first_name,last_name,email,phone FROM request ,user WHERE user.id=request.user_id",
+      "SELECT request.id ,first_name,last_name,email,phone FROM request ,user WHERE user.id=request.user_id AND request.id= ?",
       [req.params.id],
       (err, rows) => {
         //When done with the connection, release it
